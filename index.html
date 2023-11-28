@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="styles.css" rel="stylesheet">
+        <title>Il Mio Menu</title>
+    </head>
+
+    <body>
+
+        <header>
+            <h1>Il Mio Restaurant - Menu</h1>
+        </header>
+
+        <!-- Dietary Filter Section. -->
+        <label for="dietary">Dietary Filter: </label>
+        <select id="dietary" onchange="applyFilter()">
+            <option value="none" selected>None</option>
+            <option value="gluten-free">Gluten-Free</option>
+            <option value="shellfish">Shellfish</option>
+            <option value="vegetarian">Vegetarian</option>
+        </select>
+
+        <!-- Dietary Type Section. -->
+        <label for="type">Type Filter: </label>
+        <select id="type" onchange="applyFilter()">
+            <option value="none" selected>None</option>
+            <option value="fish">Fish</option>
+            <option value="meat">Meat</option>
+            <option value="pasta">Pasta</option>
+        </select>
+
+        <!-- Search Bar. -->
+        <input class="search-bar" type="text" id="searchBar" placeholder="Search for like menu items: ">
+        <!-- Like Menu Items Button. -->
+        <button class="button" type="button" onclick="performSearch()"></button>
+
+        <!-- Div for menu items. -->
+        <div class="menu-container"></div>
+
+        <!-- Container to show the search results. -->
+        <div id="searchResults"></div>
+
+        <!-- Include JavaScript file. -->
+        <script src="index.js"></script>
+
+        <script>
+            // Generate the menu items when the DOM is fully loaded.
+            document.addEventListener('DOMContentLoaded', function() {
+                document.querySelector('.menu-container').innerHTML = generateMenuItems(menuItems);
+            });
+        </script>
+
+    </body>
+    
+</html>
